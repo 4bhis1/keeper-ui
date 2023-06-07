@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import View from "../../Components/View";
 import LightAndDarkModeSwitch from "../../Components/Switch/LightAndDarkModeSwitch";
 import Avatar from "../../Components/Avatar/Avatar";
+import { useUser } from "../../Utils/hooks";
 
 const Nav = () => {
+  const { logout } = useUser();
+
   return (
     <>
       <View
@@ -35,7 +38,7 @@ const Nav = () => {
             List View
           </View> */}
           <View style={{ cursor: "pointer", position: "relative" }}>
-            <Avatar name={"Abhishek Kumar"} />
+            <Avatar name={"Abhishek Kumar"} onClick={logout} />
             {/* <View style={{position : "Absolute", top : 40, zInde : 2}}>
               Nice
             </View> */}

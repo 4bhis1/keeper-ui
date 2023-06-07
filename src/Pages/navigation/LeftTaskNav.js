@@ -59,18 +59,18 @@ const IconsAndText = ({
           justifyContent: "space-between",
         }}
       >
-        <View onClick={action} style={{ flex: 1 }}>
-          <View style={{ color: "FONT1" }} hoverStyle={{ color: "FONT3" }}>
-            {icon}
-          </View>
+        <View
+          onClick={action}
+          style={{ flex: 1, color: "FONT1" }}
+          hoverStyle={{ color: "FONT3" }}
+        >
+          <View>{icon}</View>
           <View
             style={{
               marginLeft: 10,
               fontWeight: bold ? 600 : 500,
-              color: "FONT1",
               fontSize: 17,
             }}
-            hoverStyle={{ color: "FONT3" }}
           >
             {text}
           </View>
@@ -113,7 +113,7 @@ const LeftTaskNav = () => {
           }}
         >
           <MdOutlineCategory />
-          <View style={{ marginLeft: 10, color: "FONT1" }}>Categories</View>
+          <View style={{ marginLeft: 10 }}>Categories</View>
         </View>
 
         {/* <View

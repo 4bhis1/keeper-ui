@@ -35,7 +35,7 @@ const View = ({
     style?.backgroundColor ||
     "transparent";
 
-  const fontColor = FontColor[style?.color] || "black";
+  const fontColor = FontColor[style?.color] || "inherit";
 
   const tempBorderColor = colors[style?.borderColor] || "transparent";
 
