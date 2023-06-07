@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { COLORS, FONT_COLORS } from "../Theme/Colors";
 import { themeContext } from "./Context/ThemeContext";
 import { userContext } from "./Context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 export const useTheme = () => {
   let [theme, changeTheme] = useContext(themeContext);
@@ -19,13 +20,19 @@ export const useTheme = () => {
 };
 
 export const useUser = () => {
-  let { logout } = useContext(userContext);
+  let { user, setUser } = useContext(userContext);
+  const Navigate = useNavigate();
 
-  let user = {
-    name: "",
-    color: "",
-    email: "",
+  let logout = () => {
+    console.log("Nice clicke on loffout");
+    window.localStorage.removeItem("token");
+    Navigate("/login");
   };
 
-  return { user, logout };
+  let login = (token, user) => {
+    window.localStorage.setItem("token", token);
+    setUser(">>");
+  };
+
+  return { user, logout, login };
 };

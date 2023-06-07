@@ -1,7 +1,7 @@
 import React from "react";
 import View from "../View";
 
-const Avatar = ({ name, image }) => {
+const Avatar = ({ name, image, onClick }) => {
   const [firstName, lastName] = name.split(" ");
   const nameOfAvatar =
     firstName[0].toString().toUpperCase() +
@@ -16,6 +16,7 @@ const Avatar = ({ name, image }) => {
         alignItems: "center",
         borderRadius: 30,
       }}
+      onClick={onClick}
     >
       {image ? void 0 : <View>{nameOfAvatar}</View>}
     </View>

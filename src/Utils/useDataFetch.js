@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useApiRequest = ({
+const useDataFetch = ({
   url,
   reloadEvents = [],
   method = "GET",
@@ -11,12 +11,14 @@ const useApiRequest = ({
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  const prefixUrl = process.env.REACT_APP_URL;
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
 
       try {
-        const response = await fetch(url, {
+        const response = await fetch(prefixUrl + url, {
           method: method,
           body: JSON.stringify(queryParams),
           headers: {
@@ -41,4 +43,4 @@ const useApiRequest = ({
   return { data, error, isLoading };
 };
 
-export default useApiRequest;
+export default useDataFetch;

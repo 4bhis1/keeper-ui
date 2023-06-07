@@ -8,15 +8,14 @@ import View from "./Components/View";
 import LeftSectionImage from "./Pages/auth/LeftSectionImage";
 import LeftTaskNav from "./Pages/navigation/LeftTaskNav";
 import Nav from "./Pages/navigation/Nav";
-
 import Notes from "./Pages/keeper/Notes";
 import Habits from "./Pages/habits/Habits";
 
-function App() {
-  let login = true;
-
+const RouteComponent = () => {
+  let login = window.localStorage.getItem("token");
+  console.log("\n@@@  file: App.js:16  login:", login);
   return (
-    <Provider>
+    <>
       {!login ? (
         <View>
           <LeftSectionImage />
@@ -52,16 +51,24 @@ function App() {
                 <Route exact path="/moneyManage" element={<Habits />} />
                 <Route exact path="/library" element={<Habits />} />
                 {/* <Route exact path="/anime" element={<FisrtScreen />} /> */}
-                {/* 
-                <Route exact path="/movies/:movieId" element={<MovieWatch />} />
-                <Route exact path="/series/:seriesId" element={<Main />} />
-                <Route exact path="/anime/watch" element={<Main />} /> 
-              */}
+                {/*
+              <Route exact path="/movies/:movieId" element={<MovieWatch />} />
+              <Route exact path="/series/:seriesId" element={<Main />} />
+              <Route exact path="/anime/watch" element={<Main />} />
+            */}
               </Routes>
             </View>
           </View>
         </View>
       )}
+    </>
+  );
+};
+
+function App() {
+  return (
+    <Provider>
+      <RouteComponent />
     </Provider>
   );
 }
